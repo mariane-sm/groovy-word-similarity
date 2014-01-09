@@ -3,7 +3,7 @@ String similarity: at most 1 character is different
 */
 class WordSimilarityChecker {
 
-	def final MAXIMUM_DIFFERENT_CHARS_ALLOWED = 1
+	private def final MAXIMUM_DIFFERENT_CHARS_ALLOWED = 1
 
 	def Boolean check(String str1, String str2) {
 		if (str1.size() == str2.size())
@@ -12,7 +12,7 @@ class WordSimilarityChecker {
 
 	}
 
-	def Boolean haveWordsAllowedQuantityOfExtraLetters(String str1, String str2) {
+	private def Boolean haveWordsAllowedQuantityOfExtraLetters(String str1, String str2) {
 		if (str1.contains(str2)) {
 			if (str1.size() - str2.size() <= MAXIMUM_DIFFERENT_CHARS_ALLOWED)
 				return true
@@ -24,7 +24,7 @@ class WordSimilarityChecker {
 		return false
 	}
 
-	def Boolean areSameSizeWordsSimilar(String str1, String str2) {
+	private def Boolean areSameSizeWordsSimilar(String str1, String str2) {
 		def differentCharsCounter = 0
 		for (i in 0..(str1.size() - 1)) {
 			if (str1[i] != str2[i])
