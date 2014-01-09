@@ -8,11 +8,11 @@ class WordSimilarityChecker {
 	def Boolean check(String str1, String str2) {
 		if (str1.size() == str2.size())
 			return areSameSizeWordsSimilar(str1, str2)
-		return wordsHaveAtMostOneExtraLetter(str1, str2)
+		return haveWordsAllowedQuantityOfExtraLetters(str1, str2)
 
 	}
 
-	def Boolean wordsHaveAtMostOneExtraLetter(String str1, String str2) {
+	def Boolean haveWordsAllowedQuantityOfExtraLetters(String str1, String str2) {
 		if (str1.contains(str2)) {
 			if (str1.size() - str2.size() <= MAXIMUM_DIFFERENT_CHARS_ALLOWED)
 				return true
