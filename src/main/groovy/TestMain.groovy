@@ -9,9 +9,7 @@ class TestMain {
 		println checker.check("tomatoX", "tomato")
 		println checker.check("tomat", "tomato")
 		println checker.check("tomato", "tomat")
-
 		println("")
-
 		println checker.check("tomatoXX", "tomato")
 		println checker.check("tomato", "tomatoXX")
 		println checker.check("tomato", "tamata")
