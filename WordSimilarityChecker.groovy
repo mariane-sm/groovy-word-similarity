@@ -1,37 +1,31 @@
-/*
-String similarity: at most 1 character is different
-*/
 class WordSimilarityChecker {
 
-	private def final MAXIMUM_DIFFERENT_CHARS_ALLOWED = 1
+	private final MAX_DIFFERENT_CHARS_ALLOWED = 1
 
-	def Boolean check(String str1, String str2) {
+	Boolean check(String str1, String str2) {
 		if (str1.size() == str2.size())
 			return areSameSizeWordsSimilar(str1, str2)
-		return haveWordsAllowedQuantityOfExtraLetters(str1, str2)
-
+		return haveAllowedQuantityOfExtraLetters(str1, str2)
 	}
 
-	private def Boolean haveWordsAllowedQuantityOfExtraLetters(String str1, String str2) {
-		if (str1.contains(str2)) {
-			if (str1.size() - str2.size() <= MAXIMUM_DIFFERENT_CHARS_ALLOWED)
-				return true
-		}
-		if (str2.contains(str1)) {
-			if (str2.size() - str1.size() <= MAXIMUM_DIFFERENT_CHARS_ALLOWED)
-				return true
-		}
-		return false
-	}
-
-	private def Boolean areSameSizeWordsSimilar(String str1, String str2) {
+	private Boolean areSameSizeWordsSimilar(String str1, String str2) {
 		def differentCharsCounter = 0
-		for (i in 0..(str1.size() - 1)) {
+		for (i in 0..(str1.size() - 1))
 			if (str1[i] != str2[i])
 				differentCharsCounter++
-		}
-		if (differentCharsCounter > MAXIMUM_DIFFERENT_CHARS_ALLOWED)
+		
+		if (differentCharsCounter > MAX_DIFFERENT_CHARS_ALLOWED)
 			return false
 		return true
 	}
+
+	private Boolean haveAllowedQuantityOfExtraLetters(String str1, String str2) {
+		if (str1.contains(str2))
+			if (str1.size() - str2.size() <= MAX_DIFFERENT_CHARS_ALLOWED)
+				return true
+		if (str2.contains(str1))
+			if (str2.size() - str1.size() <= MAX_DIFFERENT_CHARS_ALLOWED)
+				return true	
+		return false
+	}	
 }

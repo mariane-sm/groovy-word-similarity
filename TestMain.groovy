@@ -1,4 +1,3 @@
-
 class TestMain {
 	static main(args) {
 		def checker = new WordSimilarityChecker()
