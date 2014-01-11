@@ -13,17 +13,8 @@ class WordSimilarityCheckerTest extends Specification {
 			str1 = 'tomato'
 			str2 = 'tomato'
 	}
-	
-	def "same word should be similar"() { 
-		expect: 
-			checker.check(str1, str2) == true
-			checker.check(str2, str1) == true
-		where: 
-			str1 = 'tomato'
-			str2 = 'tomato'
-	}
 
-	def "one different letters should be similar"() { 
+	def "one different letter should be similar"() { 
 		expect: 
 			checker.check(str1, str2) == true
 			checker.check(str2, str1) == true
@@ -77,4 +68,22 @@ class WordSimilarityCheckerTest extends Specification {
 			str1 = 'tomatoXX'
 			str2 = 'tomato'
 	}
+
+	def "any null should return NOT similar"() { 
+		expect: 
+			checker.check(str1, str2) == false
+			checker.check(str2, str1) == false
+		where: 
+			str1 = null
+			str2 = 'tomato'
+	}
+
+	def "should work with empty strings"() { 
+		expect: 
+			checker.check(str1, str2) == false
+			checker.check(str2, str1) == false
+		where: 
+			str1 = ''
+			str2 = 'tomato'
+	}		
 }

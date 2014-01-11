@@ -3,6 +3,8 @@ class WordSimilarityChecker {
 	private final MAX_DIFFERENT_CHARS_ALLOWED = 1
 
 	Boolean check(String str1, String str2) {
+		if (str1 == null || str2 == null)
+			return false
 		if (str1.size() == str2.size())
 			return areSameSizeWordsSimilar(str1, str2)
 		return haveAllowedQuantityOfExtraLetters(str1, str2)
