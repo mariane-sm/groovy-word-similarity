@@ -1,3 +1,8 @@
+package wordSimilarityChecker
+
+import org.springframework.stereotype.Component
+
+@Component
 class WordSimilarityChecker {
 
 	private final MAX_DIFFERENT_CHARS_ALLOWED = 1
@@ -10,7 +15,7 @@ class WordSimilarityChecker {
 		return haveAllowedQuantityOfExtraLetters(str1, str2)
 	}
 
-	private Boolean areSameSizeWordsSimilar(String str1, String str2) {
+	private def areSameSizeWordsSimilar(String str1, String str2) {
 		def differentCharsCounter = 0
 		for (i in 0..(str1.size() - 1))
 			if (str1[i] != str2[i])
@@ -21,7 +26,7 @@ class WordSimilarityChecker {
 		return true
 	}
 
-	private Boolean haveAllowedQuantityOfExtraLetters(String str1, String str2) {
+	private def haveAllowedQuantityOfExtraLetters(String str1, String str2) {
 		if (str1.contains(str2))
 			if (str1.size() - str2.size() <= MAX_DIFFERENT_CHARS_ALLOWED)
 				return true

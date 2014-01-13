@@ -1,8 +1,15 @@
+package wordSimilarityChecker
+
 import spock.lang.Specification;
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.test.context.ContextConfiguration
 
+@ContextConfiguration(classes = [wordSimilarityChecker.ContextConfiguration])
 class WordSimilarityCheckerTest extends Specification { 
-
-	def checker = new WordSimilarityChecker()
+	
+	@Autowired 
+	private WordSimilarityChecker checker
+	
 	def str1, str2
 
 	def "same word should be similar"() { 
