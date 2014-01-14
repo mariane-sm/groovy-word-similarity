@@ -7,6 +7,6 @@ class Main {
 
 	static main(args) {
 		def ctx = new AnnotationConfigApplicationContext(ContextConfiguration)
-		ctx.getBean(Xisto.class).checkerFacebook('tomato', 'tomate')
+		ctx.getBean(Query.class).checkQueriesSimilarity('tomato', 'tomate')
 	}
 }
