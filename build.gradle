@@ -16,7 +16,7 @@ dependencies {
     // We use the latest groovy 2.x version for building this library
     compile 'org.codehaus.groovy:groovy:2.2.1'
     compile 'org.springframework:spring-context:4.0.0.RELEASE'
-    //compile 'javax.inject:javax.inject:1'
+    compile 'javax.inject:javax.inject:1'
 
     // We use the awesome Spock testing and specification framework
     testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
