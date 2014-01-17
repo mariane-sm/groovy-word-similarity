@@ -23,5 +23,6 @@ dependencies {
 }
 
 configurations {
+    all*.exclude group: "log4j", module: "log4j"
     all*.exclude group: "commons-logging", module: "commons-logging"
 }
