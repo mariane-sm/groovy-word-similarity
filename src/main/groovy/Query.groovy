@@ -9,10 +9,17 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import wordSimilarityChecker.annotations.StrictChecker;
 import wordSimilarityChecker.annotations.PermissiveChecker;
 
-@Slf4j
+@Slf4j 
 @Component 
 class Query {
 	
+	//Injection by constructor, so the dependencies can be mocked.
+	@Inject
+	def Query(@StrictChecker WordSimilarityChecker strictChecker, @PermissiveChecker WordSimilarityChecker permissiveChecker) {
+		this.strictChecker = strictChecker
+		this.permissiveChecker = permissiveChecker
+	}
+
 	/*
 		@Resource, @Inject, @Named are JSRs
 		@Qualifier is Spring annotation (do not confuse with javax.inject.Qualifier)
@@ -30,11 +37,11 @@ class Query {
 	//@Resource(name='strictWordSimilarityChecker')
 	//@Named('strictWordSimilarityChecker')
 	//@Inject @Qualifier('strictWordSimilarityChecker')
-	@Inject @StrictChecker
-	private WordSimilarityChecker strictChecker
+	//@Inject @StrictChecker
+	private final WordSimilarityChecker strictChecker
 
-	@Inject @PermissiveChecker
-	private WordSimilarityChecker permissiveChecker
+	//@Inject @PermissiveChecker
+	private final WordSimilarityChecker permissiveChecker
 
 	def checkQueriesSimilarity(String str1, String str2) {
 		println strictChecker.check(str1, str2)

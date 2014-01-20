@@ -3,11 +3,13 @@ package wordSimilarityChecker
 import org.springframework.stereotype.Component;
 import javax.inject.*;
 import wordSimilarityChecker.annotations.PermissiveChecker;
+import groovy.transform.*;
 
 @Component
 //@Named
 @PermissiveChecker
-class PermissiveWordSimilarityChecker implements WordSimilarityChecker {
+@Immutable // Immutable here is kind of redundant since @Component already tell us this is immutable
+final class PermissiveWordSimilarityChecker implements WordSimilarityChecker {
 
 	private final MAX_DIFFERENT_CHARS_ALLOWED = 3
 
