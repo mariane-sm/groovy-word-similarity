@@ -1,14 +1,14 @@
 package wordSimilarityChecker
 
 import spock.lang.Specification;
-import org.springframework.beans.factory.annotation.Autowired
+import javax.inject.Inject;
 import org.springframework.test.context.ContextConfiguration
 
 @ContextConfiguration(classes = [wordSimilarityChecker.ContextConfiguration])
 class WordSimilarityCheckerTest extends Specification { 
 	
-	@Autowired 
-	private WordSimilarityChecker checker
+	@Inject
+	private StrictWordSimilarityChecker checker
 	
 	def str1, str2
 
