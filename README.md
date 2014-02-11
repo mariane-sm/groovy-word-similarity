@@ -1,7 +1,7 @@
 groovy-word-similarity
 ======================
 
-###Practicing with Groovy, Gradle, Spock and Spring (super overengineered in order to play with Spring Annotations)
+#####Practicing with Groovy, Gradle, Spock and Spring (super overengineered in order to play with Spring Annotations)
 
 #####A word is similar to another word only if: 
 
