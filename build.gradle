@@ -1,5 +1,6 @@
 apply plugin: 'groovy'
 apply plugin:'application'
+apply plugin: 'idea'
 
 mainClassName = "wordSimilarityChecker.Main"
 
@@ -8,7 +9,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy:2.2.1'
+    compile 'org.codehaus.groovy:groovy-all:2.2.1'
     compile 'javax.inject:javax.inject:1'
     compile 'javax.annotation:javax.annotation-api:1.2'
     compile 'org.springframework:spring-context:4.0.0.RELEASE'

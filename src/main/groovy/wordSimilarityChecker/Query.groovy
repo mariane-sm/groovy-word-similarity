@@ -1,15 +1,11 @@
 package wordSimilarityChecker
 
 import org.springframework.stereotype.Component;
-import javax.inject.*;
-import javax.annotation.Resource;   
+import javax.inject.*
+
 import groovy.util.logging.Slf4j
 
-import org.springframework.beans.factory.annotation.Qualifier;
-import wordSimilarityChecker.annotations.StrictChecker;
-import wordSimilarityChecker.annotations.PermissiveChecker;
-
-@Slf4j 
+@Slf4j
 @Component 
 class Query {
 	
@@ -44,8 +40,9 @@ class Query {
 	private final WordSimilarityChecker permissiveChecker
 
 	def checkQueriesSimilarity(String str1, String str2) {
-		println strictChecker.check(str1, str2)
-		println permissiveChecker.check(str1, str2)
+		println "Checking similarity ..."
+        println str1 + " and " + str2 + " (strick checker):" + strictChecker.check(str1, str2)
+		println str1 + " and " + str2 + " (permissive checker):" +  permissiveChecker.check(str1, str2)
 		log.info('Finishing log.');
 	}
 }

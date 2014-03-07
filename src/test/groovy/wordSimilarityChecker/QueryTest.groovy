@@ -1,4 +1,4 @@
-package wordSimilarityChecker.test
+package wordSimilarityChecker
 
 import spock.lang.Specification;
 import javax.inject.Inject;

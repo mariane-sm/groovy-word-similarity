@@ -1,17 +1,13 @@
 package wordSimilarityChecker
 
-import org.springframework.stereotype.Component;
-import javax.inject.*;
-import wordSimilarityChecker.annotations.PermissiveChecker;
-import groovy.transform.*;
+import org.springframework.stereotype.Component
 
 @Component
 //@Named
-@PermissiveChecker
-@Immutable // Immutable here is kind of redundant since @Component already tell us this is immutable
-final class PermissiveWordSimilarityChecker implements WordSimilarityChecker {
+@StrictChecker
+class StrictWordSimilarityChecker implements WordSimilarityChecker {
 
-	private final MAX_DIFFERENT_CHARS_ALLOWED = 3
+	private final MAX_DIFFERENT_CHARS_ALLOWED = 1
 
 	Boolean check(String str1, String str2) {
 		if (str1 == null || str2 == null)
