@@ -92,5 +92,41 @@ class StrictWordSimilarityCheckerTest extends Specification {
 		where: 
 			str1 = ''
 			str2 = 'tomato'
-	}		
+	}
+
+    def "One letter missing is similar"() {
+        expect:
+            checker.check(str1, str2) == true
+            checker.check(str2, str1) == true
+        where:
+            str1 = "tomato"
+            str2 = "toato"
+    }
+
+    def "Same letters completely disorder do not work"() {
+        expect:
+            checker.check(str1, str2) == false
+            checker.check(str2, str1) == false
+        where:
+            str1 = "tomato"
+            str2 = "otamot"
+    }
+
+    def "Similar when there is one extra letter in the middle"() {
+        expect:
+            checker.check(str1, str2) == true
+            checker.check(str2, str1) == true
+        where:
+            str1 = "tomato"
+            str2 = "tXomato"
+    }
+
+    def "Not similar when there is two extra letters in the middle"() {
+        expect:
+        checker.check(str1, str2) == false
+        checker.check(str2, str1) == false
+        where:
+        str1 = "tomato"
+        str2 = "tXomaXto"
+    }
 }
